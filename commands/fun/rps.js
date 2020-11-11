@@ -39,3 +39,4 @@ module.exports = {
                 message.reply('Process has been cancelled since you did not respond in time!');
             })
 }
+}

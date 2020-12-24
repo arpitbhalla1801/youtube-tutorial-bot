@@ -29,11 +29,11 @@ module.exports = {
         		if ((me === "🗻" && reaction.emoji.name === "✂") ||
                 (me === "📰" && reaction.emoji.name === "🗻") ||
                 (me === "✂" && reaction.emoji.name === "📰")) {
-                    message.reply("You won!");
+                    message.reply("You lost!");
             } else if (me === reaction.emoji.name) {
                 return message.reply("It's a tie!");
             } else {
-                return message.reply("You lost!");
+                return message.reply("You won!");
             }
         })
         .catch(collected => {

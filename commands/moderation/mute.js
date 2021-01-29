@@ -6,7 +6,7 @@ module.exports = {
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You do not have enough perms to use this cmd!");
 
         const target = message.mentions.members.first()
-        if(!target) return message.reply("Please mention someon to mute!");
+        if(!target) return message.reply("Please mention someone to mute!");
 
         if(target.id === message.author.id) {
             return message.reply("You cannot mute yourself!")

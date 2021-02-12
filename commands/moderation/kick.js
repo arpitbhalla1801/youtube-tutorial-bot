@@ -19,7 +19,7 @@ module.exports = {
         let embed = new discord.MessageEmbed()
         .setTitle("Member kicked")
         .addField("Target", target.user.tag)
-        .addField("moderator", message.author.tag)
+        .addField("Moderator", message.author.tag)
         .addField("Reason", `${reason}`)
         await message.channel.send(embed)
         await target.kick(reason)

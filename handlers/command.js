@@ -1,4 +1,8 @@
 const { readdirSync } = require('fs')
+const ascii = require('ascii-table')
+
+let table = new ascii("Commands")
+table.setHeading("Command","Load Status")
 
 module.exports = (client) => {
     readdirSync("./commands/").forEach(dir => {
@@ -9,13 +13,16 @@ module.exports = (client) => {
 
             if(pull.name) {
                 client.commands.set(pull.name, pull);
-                console.log(`${pull.name} has been loaded.`)
+                table.addRow(file,'✔ -> Loaded')
+                //console.log(`${pull.name} has been loaded.`)
             } else {
-                console.log(`${file} has an error.`)
+                table.addRow(file,'❌ -> has an error!')
+                //console.log(`${file} has an error.`)
                 continue;
             }
 
             if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(alias => client.aliases.set(alias, pull.name));
         }
     })
+    console.log(table.toString())
 }

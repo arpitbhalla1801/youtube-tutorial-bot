@@ -2,10 +2,8 @@ const { MessageEmbed } = require('discord.js')
 module.exports = {
     name: "nuke",
     description: "Nukes a given channel",
+    authorPermission: "ADMINISTRATOR",
     run: async(client, message, args) => {
-        if(!message.member.hasPermission("ADMINISTRATOR")) {
-            return message.reply("You do not have the perms to use this cmd!")
-        }
         let reason = args.join(" ") || "No Reason"
         if(!message.channel.deletable) {
             return message.reply("This channel cannot be nuked!")
